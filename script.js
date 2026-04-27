@@ -1,38 +1,38 @@
-// DATA
+// ===== DATA =====
 const courses = [
   {
-    name: "Political Economy",
-    description: "Analyzed interactions between institutions and economic outcomes.",
-    skills: ["Policy Analysis", "Institutional Thinking"]
+    name: "政治經濟學",
+    description: "分析政治制度與經濟結果之間的互動關係。",
+    skills: ["政策分析", "制度分析"]
   },
   {
-    name: "Quantitative Methods",
-    description: "Developed statistical reasoning and data analysis skills.",
-    skills: ["Data Analysis", "Statistics"]
+    name: "計量方法",
+    description: "培養資料分析與統計推論能力。",
+    skills: ["資料分析", "統計方法"]
   }
 ];
 
 const projects = [
   {
-    name: "Political Behavior Analysis",
-    shortDescription: "Analyzed peer influence in political alignment",
-    techStack: ["Research", "Analysis"]
+    name: "政治行為分析",
+    shortDescription: "分析同儕對政治立場的影響",
+    techStack: ["研究分析", "資料整理"]
   },
   {
-    name: "Personal Website",
-    shortDescription: "Built a responsive personal portfolio site",
+    name: "個人網站",
+    shortDescription: "建立具備響應式設計的作品集網站",
     techStack: ["HTML", "CSS", "JavaScript"]
   }
 ];
 
 const skills = {
   programming: ["Python", "JavaScript"],
-  ai_ml: ["Data Analysis"],
-  web: ["HTML", "CSS", "Responsive Design"],
+  ai_ml: ["資料分析"],
+  web: ["HTML", "CSS", "響應式設計"],
   tools: ["Git", "Excel"]
 };
 
-// Render
+// ===== RENDER =====
 function renderProjects() {
   const container = document.getElementById("projects-container");
   projects.forEach(p => {
@@ -71,12 +71,19 @@ function renderSkills() {
     tools: "🛠️"
   };
 
+  const labels = {
+    programming: "程式設計",
+    ai_ml: "資料分析 / AI",
+    web: "網頁開發",
+    tools: "工具"
+  };
+
   Object.keys(skills).forEach(key => {
     const div = document.createElement("div");
     div.className = "skill-category";
 
     div.innerHTML = `
-      <h3>${icons[key]} ${key.toUpperCase()}</h3>
+      <h3>${icons[key]} ${labels[key]}</h3>
       <p>${skills[key].map(s => `✨ ${s}`).join(" ")}</p>
     `;
 
@@ -84,7 +91,7 @@ function renderSkills() {
   });
 }
 
-// Navbar
+// ===== NAV =====
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
@@ -107,7 +114,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Init
+// INIT
 renderProjects();
 renderCourses();
 renderSkills();
