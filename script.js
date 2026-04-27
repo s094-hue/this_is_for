@@ -32,7 +32,7 @@ const skills = {
   tools: ["Git", "Excel"]
 };
 
-// ===== RENDER =====
+// ===== Render =====
 function renderProjects() {
   const container = document.getElementById("projects-container");
   projects.forEach(p => {
@@ -91,7 +91,7 @@ function renderSkills() {
   });
 }
 
-// ===== NAV =====
+// ===== Navbar =====
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
@@ -114,7 +114,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// INIT
+// ===== Scroll Animation =====
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".fade-in").forEach(el => {
+  observer.observe(el);
+});
+
+// ===== INIT =====
 renderProjects();
 renderCourses();
 renderSkills();

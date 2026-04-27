@@ -186,6 +186,18 @@ a:hover {
   color: #c4a4ad;
 }
 
+/* ===== Fade In Animation ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.9s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Mobile */
 @media (max-width: 768px) {
 
