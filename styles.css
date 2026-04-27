@@ -1,19 +1,25 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base */
 body {
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: #e5e7eb;
-  line-height: 1.6;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #fff7f9;
+  color: #4a4a4a;
+  line-height: 1.7;
 }
 
 a {
-  color: #38bdf8;
+  color: #d88fa3;
   text-decoration: none;
+}
+
+a:hover {
+  color: #b96c82;
 }
 
 .container {
@@ -24,9 +30,10 @@ a {
 
 /* Navbar */
 .navbar {
-  background: #020617;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
   padding: 1rem 0;
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid #f3d6dc;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -38,10 +45,15 @@ a {
   align-items: center;
 }
 
+.logo {
+  color: #b96c82;
+  font-weight: 500;
+}
+
 .nav-links {
-  list-style: none;
   display: flex;
   gap: 1.5rem;
+  list-style: none;
 }
 
 .menu-toggle {
@@ -52,46 +64,57 @@ a {
 
 /* Hero */
 .hero {
-  height: 90vh;
+  height: 85vh;
   display: flex;
   align-items: center;
   text-align: center;
 }
 
 .hero-name {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.6rem;
+  color: #b96c82;
 }
 
 .hero-tagline {
-  color: #94a3b8;
-  margin-bottom: 2rem;
+  margin: 1rem 0 2rem;
+  color: #9c8b91;
+}
+
+/* 插畫 */
+.hero-illustration {
+  font-size: 3rem;
+  margin-top: 1.5rem;
+  opacity: 0.7;
 }
 
 /* Buttons */
 .btn {
   padding: 0.7rem 1.5rem;
-  border-radius: 6px;
-  margin: 0.5rem;
+  border-radius: 999px;
+  margin: 0.3rem;
 }
 
 .btn-primary {
-  background: #38bdf8;
-  color: #020617;
+  background: #f5c6d6;
+  color: #7a4f5d;
 }
 
 .btn-secondary {
-  border: 1px solid #38bdf8;
+  border: 1px solid #f5c6d6;
+  color: #b96c82;
 }
 
 /* Sections */
 .section {
-  padding: 4rem 0;
+  padding: 5rem 0;
 }
 
 .section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #b96c82;
   margin-bottom: 2rem;
-  font-size: 1.8rem;
 }
 
 /* Cards */
@@ -102,34 +125,33 @@ a {
 }
 
 .card {
-  background: #020617;
-  border: 1px solid #1e293b;
-  padding: 1.2rem;
-  border-radius: 8px;
+  background: white;
+  border-radius: 18px;
+  padding: 1.3rem;
+  border: 1px solid #fde8ee;
+  box-shadow: 0 6px 20px rgba(255,182,193,0.15);
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
 }
 
 .card-title {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  color: #7a4f5d;
 }
 
 .card-description {
+  color: #9c8b91;
   font-size: 0.9rem;
-  color: #94a3b8;
-  margin-bottom: 0.8rem;
-}
-
-.card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
 }
 
 .tag {
-  background: #1e293b;
+  background: #fde8ee;
+  border-radius: 999px;
   padding: 0.2rem 0.6rem;
   font-size: 0.75rem;
-  border-radius: 4px;
+  color: #b96c82;
 }
 
 /* Skills */
@@ -140,18 +162,28 @@ a {
 }
 
 .skill-category {
-  background: #020617;
-  border: 1px solid #1e293b;
+  background: white;
+  border-radius: 18px;
   padding: 1rem;
-  border-radius: 8px;
+  border: 1px solid #fde8ee;
+}
+
+.skill-category h3 {
+  color: #b96c82;
+  margin-bottom: 0.5rem;
+}
+
+.skill-category p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 /* Footer */
 .footer {
   text-align: center;
-  padding: 2rem 0;
-  border-top: 1px solid #1e293b;
-  color: #64748b;
+  padding: 2rem;
+  color: #c4a4ad;
 }
 
 /* Mobile */
@@ -165,12 +197,10 @@ a {
     position: absolute;
     top: 60px;
     right: 0;
-    background: #020617;
+    background: white;
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
     display: none;
   }
 
@@ -178,10 +208,7 @@ a {
     display: flex;
   }
 
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .card-grid,
   .skills-grid {
     grid-template-columns: 1fr;
   }

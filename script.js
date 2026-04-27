@@ -1,13 +1,13 @@
-// ===== DATA =====
+// DATA
 const courses = [
   {
     name: "Political Economy",
-    description: "Analyzed interactions between political institutions and economic outcomes.",
+    description: "Analyzed interactions between institutions and economic outcomes.",
     skills: ["Policy Analysis", "Institutional Thinking"]
   },
   {
     name: "Quantitative Methods",
-    description: "Developed skills in data analysis and statistical reasoning.",
+    description: "Developed statistical reasoning and data analysis skills.",
     skills: ["Data Analysis", "Statistics"]
   }
 ];
@@ -15,12 +15,12 @@ const courses = [
 const projects = [
   {
     name: "Political Behavior Analysis",
-    shortDescription: "Analyzed peer influence in politics",
+    shortDescription: "Analyzed peer influence in political alignment",
     techStack: ["Research", "Analysis"]
   },
   {
     name: "Personal Website",
-    shortDescription: "Built a responsive personal site",
+    shortDescription: "Built a responsive personal portfolio site",
     techStack: ["HTML", "CSS", "JavaScript"]
   }
 ];
@@ -32,21 +32,17 @@ const skills = {
   tools: ["Git", "Excel"]
 };
 
-// ===== RENDER =====
+// Render
 function renderProjects() {
   const container = document.getElementById("projects-container");
   projects.forEach(p => {
     const div = document.createElement("div");
     div.className = "card";
-
     div.innerHTML = `
       <div class="card-title">${p.name}</div>
       <div class="card-description">${p.shortDescription}</div>
-      <div class="card-tags">
-        ${p.techStack.map(t => `<span class="tag">${t}</span>`).join("")}
-      </div>
+      ${p.techStack.map(t => `<span class="tag">${t}</span>`).join("")}
     `;
-
     container.appendChild(div);
   });
 }
@@ -56,15 +52,11 @@ function renderCourses() {
   courses.forEach(c => {
     const div = document.createElement("div");
     div.className = "card";
-
     div.innerHTML = `
       <div class="card-title">${c.name}</div>
       <div class="card-description">${c.description}</div>
-      <div class="card-tags">
-        ${c.skills.map(s => `<span class="tag">${s}</span>`).join("")}
-      </div>
+      ${c.skills.map(s => `<span class="tag">${s}</span>`).join("")}
     `;
-
     container.appendChild(div);
   });
 }
@@ -72,20 +64,27 @@ function renderCourses() {
 function renderSkills() {
   const container = document.getElementById("skills-container");
 
+  const icons = {
+    programming: "💻",
+    ai_ml: "🤖",
+    web: "🌐",
+    tools: "🛠️"
+  };
+
   Object.keys(skills).forEach(key => {
     const div = document.createElement("div");
     div.className = "skill-category";
 
     div.innerHTML = `
-      <h3>${key.toUpperCase()}</h3>
-      <p>${skills[key].join(", ")}</p>
+      <h3>${icons[key]} ${key.toUpperCase()}</h3>
+      <p>${skills[key].map(s => `✨ ${s}`).join(" ")}</p>
     `;
 
     container.appendChild(div);
   });
 }
 
-// ===== NAVIGATION =====
+// Navbar
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
@@ -108,7 +107,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===== INIT =====
+// Init
 renderProjects();
 renderCourses();
 renderSkills();
